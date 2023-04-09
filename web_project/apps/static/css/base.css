@@ -1,0 +1,13 @@
+.top-bar {
+    padding: 0.3rem 0;
+    background: #eee;
+}
+
+.top-bar a {
+    color: #666666;
+}
+
+.top-bar a:hover {
+    color: #1d1d1d;
+    text-decoration: none;
+}

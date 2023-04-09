@@ -1,0 +1,79 @@
+{% extends 'apps/base.html' %}
+{% load static %}
+
+{% block link_css %}
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}
+
+{% block teacher_form %}
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 mr-auto">
+                    <h3 class="mb-3">Добро пожаловать в beam.kz</h3>
+                    <p>Форма регистрации для работодателей, вузов, колледжей и других учебных заведений</p>
+                    <p>Quasi optio numquam pariatur amet laudantium, dicta ullam obcaecati nihil eveniet et aperiam
+                        beatae illum vitae in asperiores, a ex. Voluptates accusantium, beatae dolorem natus delectus
+                        nostrum, iusto nemo optio quas eum, quis a in reprehenderit totam, sequi distinctio impedit.</p>
+                    <p>На данной странице регистрируются работодатели и учебные заведения. Если вы ищете работу, то
+                        регистрация здесь</a></p>
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box">
+                        <h3 class="heading"></h3>
+
+                        <form action="{% url 'teacher_create_url' %}" class="mb-5" method="post" id="contactForm" name="contactForm">
+                            {% csrf_token %}
+                            {% if forms.errors %}
+                                <div class='alert alert-danger'>
+                                    {{ forms.errors}}
+                                </div>
+                            {% endif%}
+
+                            <div class="row">
+
+                                <div class="col-md-6 form-group">
+                                    <label for="id_name" class="col-form-label">{{forms.name.label}}</label>
+                                    {{forms.name}}
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="id_surname" class="col-form-label">{{forms.surname.label}}</label>
+                                    {{forms.surname}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label for="id_name" class="col-form-label">{{forms.email.label}}</label>
+                                    {{forms.email}}
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label for="id_number_phone" class="col-form-label">{{forms.number_phone.label}}</label>
+                                    {{forms.number_phone}}
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label for="id_organization" class="col-form-label">{{forms.organization.label}}</label>
+                                    {{forms.organization}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Регистрация"
+                                        class="btn btn-block btn-primary rounded-0 py-2 px-4">
+                                    <span class="submitting"></span>
+                                </div>
+                            </div> 
+                        </form> 
+                        <div id="form-message-warning mt-4"></div>
+                        <div id="form-message-success">
+                            Your message was sent, thank you!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

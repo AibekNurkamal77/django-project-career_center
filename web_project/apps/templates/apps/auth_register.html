@@ -1,0 +1,48 @@
+{% extends 'apps/base.html' %}
+{% load static %}
+
+{% block link_css %}
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/auth_style.css' %}" />
+{% endblock %}
+
+{% block teacher_form %}
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="margin: 0 auto;">
+                    <div class="box">
+                        <h3 class="heading"> <img src="{% static 'img/logos.png' %}" width="60" height="60" alt=""></h3>
+                        <div class="list-group">
+                            <a href="#" class="login-item">
+                              <div class="login-title">
+                                <span>Я ищу работу</span>
+                              </div>
+                              <div class="login-arrow"><svg class="arrowForward" xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12">
+                                <polygon points="0 10.59 4.58 6 0 1.41 1.41 0 7.41 6 1.41 12"></polygon>
+                            </svg></div>
+                            </a>
+                            <a href="#" class="login-item">
+                              <div class="login-title">
+                                <span>Я ищу сотрудника</span>
+                              </div>
+                              <div class="login-arrow"><svg class="arrowForward" xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12">
+                                <polygon points="0 10.59 4.58 6 0 1.41 1.41 0 7.41 6 1.41 12"></polygon>
+                            </svg></div>
+                            </a>
+                            <a href="#" class="login-item">
+                              <div class="login-title">
+                                <span>Я - центр карьеры</span>
+                              </div>
+                              <div class="login-arrow"><svg class="arrowForward" xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12">
+                                <polygon points="0 10.59 4.58 6 0 1.41 1.41 0 7.41 6 1.41 12"></polygon>
+                            </svg></div>
+                            </a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

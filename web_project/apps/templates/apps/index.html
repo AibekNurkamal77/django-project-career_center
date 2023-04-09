@@ -1,0 +1,73 @@
+{% extends 'apps/base.html' %} {% load static %}
+
+{% block link_css%}
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'css/style_verification.css' %} ">
+
+{% endblock %}
+
+{% block info_teacher %}
+<section class="ftco-section">
+    <div class="container-fruid">
+        <div class="row customs_row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+
+                    <table class="table table-responsive-xl">
+                        <thead>
+                            <tr>
+                                <th>Одобрение</th>
+                                <th>Email</th>
+                                <th>Имя</th>
+                                <th>Фамилия</th>
+                                <th>Номер телефона</th>
+                                <th>Название компании</th>
+                                <th>Подтвердить&oplus;Удалить</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for f in forms %}
+                            <form action="{% url 'vakansi' %}" method='post'>
+                                <tr class="alert" role="alert">
+                                    <td>
+
+                                        {% csrf_token %}
+
+                                        <input hidden type="email" name="email" id="id_email" value="{{f.email}}">
+                                        <input type="checkbox" name="success_check" required="" id="id_success_check" >
+                                        <!-- {% comment %} <input type="checkbox" id="success_switch"/><label for="success_switch">Toggle</label> {% endcomment %} -->
+
+                                    </td>
+                                    <td class="d-flex align-items-center">
+                                        <div class="pl-3 email">
+                                            <span>{{f.email}}</span>
+                                            <span>Added: {{f.created_at}}</span>
+                                        </div>
+                                    </td>
+                                    <td>{{f.name}}</td>
+                                    <td>{{f.surname}}</td>
+                                    <td>{{f.number_phone}}</td>
+                                    <td>{{f.organization}}</td>
+                                    <td>
+                                        <button class="btn btn-outline-success me-2" style="font-size: 11px;" type="submit">Подтвердить</button>
+                                        <input class="btn btn-outline-danger me-2 delete_check" style="font-size: 11px;" type="submit" name="delete_check" required="" id="id_delete_check" value="Удалить">
+                                    </td>
+
+
+                                </tr>
+                
+                            </form>
+                            {% endfor %}
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
