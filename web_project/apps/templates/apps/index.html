@@ -34,7 +34,7 @@
                                         {% csrf_token %}
 
                                         <input hidden type="email" name="email" id="id_email" value="{{f.email}}">
-                                        <input type="checkbox" name="success_check" required="" id="id_success_check" >
+                                        <input type="checkbox" name="success_check" required="" id="id_success_check">
                                         <!-- {% comment %} <input type="checkbox" id="success_switch"/><label for="success_switch">Toggle</label> {% endcomment %} -->
 
                                     </td>
@@ -49,13 +49,16 @@
                                     <td>{{f.number_phone}}</td>
                                     <td>{{f.organization}}</td>
                                     <td>
-                                        <button class="btn btn-outline-success me-2" style="font-size: 11px;" type="submit">Подтвердить</button>
-                                        <input class="btn btn-outline-danger me-2 delete_check" style="font-size: 11px;" type="submit" name="delete_check" required="" id="id_delete_check" value="Удалить">
+                                        <button class="btn btn-outline-success me-2" style="font-size: 11px;"
+                                            type="submit">Подтвердить</button>
+                                        <input class="btn btn-outline-danger me-2 delete_check" style="font-size: 11px;"
+                                            type="submit" name="delete_check" required="" id="id_delete_check"
+                                            value="Удалить">
                                     </td>
 
 
                                 </tr>
-                
+
                             </form>
                             {% endfor %}
 

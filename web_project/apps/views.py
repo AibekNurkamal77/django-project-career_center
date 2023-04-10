@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from .models import Teacher_Post
 from .forms import *
+from django.contrib.auth.forms import UserCreationForm
 
 
 def Index(request):
@@ -33,3 +34,14 @@ class TeacherCreate(View):
 def AuthCreate(request):
 
     return render(request, 'apps/auth_register.html')
+
+
+def Registration(request):
+    if request.method=='POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'apps/registration.html', {'form': form})
